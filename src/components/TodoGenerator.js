@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import '../App.css';
 
 const TodoGenerator = (props) => { 
     const [todoItem, setTodoItem] = useState("");
@@ -7,10 +8,11 @@ const TodoGenerator = (props) => {
         const inputItem = todoItem;
         setTodoItem(inputItem);
         props.onInputChange(inputItem)
+        setTodoItem("");
     }
 
     return (
-    <div>
+    <div className="todoGenerator">
         <input type='text' value={todoItem} 
         onChange={event => setTodoItem(event.target.value)}/>
         <button onClick={submitInput}>Add</button>
