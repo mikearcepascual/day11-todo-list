@@ -1,9 +1,9 @@
-import TodoGroup from './components/TodoGroup';
+import TodoList from './components/TodoList';
 import './App.css';
 
 function App() {
   return (
-    <TodoGroup size={3}/>
+    <TodoList/>
   );
 }
 
