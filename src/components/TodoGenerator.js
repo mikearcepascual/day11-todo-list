@@ -1,7 +1,7 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import '../App.css';
 
-const TodoGenerator = (props) => { 
+const TodoGenerator = (props) => {
     const [todoItem, setTodoItem] = useState("");
 
     const submitInput = () => {
@@ -12,11 +12,11 @@ const TodoGenerator = (props) => {
     }
 
     return (
-    <div className="todoGenerator">
-        <input type='text' value={todoItem} 
-        onChange={event => setTodoItem(event.target.value)}/>
-        <button onClick={submitInput}>Add</button>
-    </div>
+        <div className="todoGenerator">
+            <input type='text' value={todoItem}
+                onChange={event => setTodoItem(event.target.value)} />
+            <button onClick={submitInput}>Add</button>
+        </div>
     )
 }
 export default TodoGenerator;

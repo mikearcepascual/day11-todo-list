@@ -1,76 +1,84 @@
-*{
-  border-radius:10px;
+* {
+  border-radius: 10px;
 }
-#root{
+
+#root {
   display: flex;
   justify-content: center;
   align-content: center;
 }
-.todoList{
-  width:500px;
-  height:600px;
-  display:flex;
-  justify-content:center;
+
+.todoList {
+  width: 500px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
   flex-flow: row wrap;
-  background-color:#e3e9ff;
+  background-color: #e3e9ff;
 }
-h3{
-  margin:0;
+
+h3 {
+  margin: 0;
 }
-.todoListHeader{
-  background-color:#af7eeb;
-  margin:10px 0 0 0;
-  height:25px;
-  padding:10px 0;
-  width:250px;
+
+.todoListHeader {
+  background-color: #af7eeb;
+  margin: 10px 0 0 0;
+  height: 25px;
+  padding: 10px 0;
+  width: 250px;
   text-align: center;
-  color:whitesmoke;
-  box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+  color: whitesmoke;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
 }
-.todoGroup{
-  padding-top:10px;
-  width:450px;
-  height:350px;
-  display:flex;
+
+.todoGroup {
+  padding-top: 10px;
+  width: 450px;
+  height: 350px;
+  display: flex;
   align-items: center;
   flex-direction: column;
   background-color: whitesmoke;
-  overflow-y:auto;
+  overflow-y: auto;
 }
 
-.todoGenerator{
-  height:50px;
-  width:400px;
+.todoGenerator {
+  height: 50px;
+  width: 400px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.todoGenerator input[type="text"]{
-  width:75%;
+
+.todoGenerator input[type="text"] {
+  width: 75%;
   border-radius: 0;
-  height:30px;
+  height: 30px;
   border: none;
-  outline:none;
-  font-size: 24px;
-  height:80%;
-  box-shadow: 0px 5px 20px rgba(0,0,0,0.3);
-}
-.todoGenerator button{
-  width:22%;
-  height: 80%;
-  background-color:#af7eeb;
-  color:whitesmoke;
-  border:none;
   outline: none;
-  font-size:20px;
+  font-size: 24px;
+  height: 80%;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.todoGenerator button {
+  width: 22%;
+  height: 80%;
+  background-color: #af7eeb;
+  color: whitesmoke;
+  border: none;
+  outline: none;
+  font-size: 20px;
   border-radius: 25px;
   cursor: pointer;
 }
 
-.todoItem{
-  width:400px;
+.todoItem {
+  width: 400px;
   text-align: center;
-  padding:15px;
-  box-shadow:5px 5px 20px rgba(0,0,0,0.5);
-  margin:5px;
+  padding: 10px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+  margin: 5px;
+  font-size: 20px;
 }
