@@ -10,7 +10,13 @@ const TodoItem = (props) => {
     };
 
     const deleteItem = () => {
-        dispatch(deleteTodoItem(props.index));
+        if(window.confirm("Are you sure you want to remove this item?")){
+            dispatch(deleteTodoItem(props.index));
+            window.alert("Todo Item removed successfully");
+        }
+        else{
+            window.alert("Todo item remove failed")
+        }
     };
 
     return (
