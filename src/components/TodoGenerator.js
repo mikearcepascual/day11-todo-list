@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import {useDispatch} from 'react-redux';
-import {addTodoItem} from './todoListSlice';
+import { useDispatch } from 'react-redux';
+import { addTodoItem } from './todoListSlice';
 import '../App.css';
 
 const TodoGenerator = () => {
@@ -14,10 +14,10 @@ const TodoGenerator = () => {
     const id = crypto.randomUUID();
 
     const submitInput = () => {
-        if(todoItem.trim() === ""){
+        if (todoItem.trim() === "") {
             alert("Invalid input! Please add text");
         }
-        else{
+        else {
             dispatch(
                 addTodoItem({
                     id,
@@ -26,15 +26,15 @@ const TodoGenerator = () => {
                 })
             );
             setTodoItem("");
-        }        
+        }
     }
 
     return (
         <div className="todoGenerator">
-            <input type='text' 
-            placeholder="What are you going to do today?" 
-            value={todoItem}
-            onChange={addItem} />
+            <input type='text'
+                placeholder="What are you going to do today?"
+                value={todoItem}
+                onChange={addItem} />
             <button onClick={submitInput}>Add</button>
         </div>
     )
