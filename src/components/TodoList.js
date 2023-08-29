@@ -7,9 +7,7 @@ const TodoList = () => {
     const [todos, setTodos] = useState([])
 
     const onInputChange = (todo) => {
-        setTodos((currentTodos) => {
-            return [...currentTodos, todo]
-        })
+        setTodos([...todos, todo])
     };
 
     return (

@@ -2,7 +2,7 @@ import TodoItem from './TodoItem';
 import '../App.css';
 
 const TodoGroup = (props) => {
-    const todoItems = [].concat(props.todoList);
+    const todoItems = props.todoList;
 
     return (
         <div className="todoGroup">
