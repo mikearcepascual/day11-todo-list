@@ -11,7 +11,6 @@ const TodoGenerator = () => {
     };
 
     const dispatch = useDispatch();
-    const id = crypto.randomUUID();
 
     const submitInput = () => {
         if (todoItem.trim() === "") {
@@ -20,7 +19,7 @@ const TodoGenerator = () => {
         else {
             dispatch(
                 addTodoItem({
-                    id,
+                    id: crypto.randomUUID(),
                     text: todoItem,
                     done: false,
                 })
