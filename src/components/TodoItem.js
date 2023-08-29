@@ -17,10 +17,10 @@ const TodoItem = (props) => {
         <div className="todoItem">
             <span className={props.todoItem.done ? "done" : ""}
                 onClick={markAsDone}>
-                    {props.todoItem.text}
+                {props.todoItem.text}
             </span>
             <button className="delete-btn"
-            onClick={deleteItem}>X</button>
+            onClick={deleteItem}>&times;</button>
         </div>
     )
 }

@@ -6,6 +6,8 @@
   display: flex;
   justify-content: center;
   align-content: center;
+  padding: 20px;
+  background-color: #303134;
 }
 
 .todoList {
@@ -15,6 +17,8 @@
   justify-content: center;
   flex-flow: row wrap;
   background-color: #e3e9ff;
+  box-shadow: 3px 5px 10px rgba(255, 255, 255, 0.5);
+  border: 5px solid rgba(0, 0, 0, 0.5);
 }
 
 h3 {
@@ -33,14 +37,19 @@ h3 {
 }
 
 .todoGroup {
-  padding-top: 10px;
+  padding-top:10px;
   width: 450px;
   height: 350px;
   display: flex;
   align-items: center;
   flex-direction: column;
   background-color: whitesmoke;
-  overflow-y: auto;
+  overflow-y: none;
+  padding-left:5px;
+  background-image: linear-gradient(#ccc 1px, transparent 1px);
+  background-attachment: fixed;
+  background-repeat: repeat;
+  background-size: 40px 45px;
 }
 
 .todoGenerator {
@@ -75,20 +84,48 @@ h3 {
   transition: 0.3s;
 }
 
-.todoGenerator button:hover{
-  background-color:whitesmoke;
-  color:#af7eeb;
+.todoGenerator button:hover {
+  background-color: whitesmoke;
+  color: #af7eeb;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
 
 }
-::placeholder{
-  font-size:18px;
+
+::placeholder {
+  font-size: 18px;
 }
+
 .todoItem {
   width: 400px;
-  text-align: center;
-  padding: 10px;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
-  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 7px;
   font-size: 20px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid transparent;
+}
+
+.todoItem span {
+  display: list-item;
+  list-style-position: inside;
+  padding-left: 12px;
+  width: 90%;
+  font-weight: 500;
+}
+
+.done {
+  color:#ccc;
+  text-decoration: line-through;
+}
+
+.delete-btn {
+  background-color: #d9534f;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  color: white;
+  font-weight: bolder;
+  width: 32px;
+  cursor: pointer;
 }
