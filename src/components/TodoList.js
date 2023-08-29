@@ -1,4 +1,4 @@
-import {useSelector} from "react-redux"
+import { useSelector } from "react-redux"
 import TodoGroup from './TodoGroup'
 import TodoGenerator from './TodoGenerator'
 import '../App.css';

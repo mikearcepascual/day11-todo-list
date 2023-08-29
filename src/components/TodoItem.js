@@ -1,5 +1,5 @@
-import {useDispatch} from "react-redux";
-import {deleteTodoItem, doneTodoItem} from "./todoListSlice";
+import { useDispatch } from "react-redux";
+import { deleteTodoItem, doneTodoItem } from "./todoListSlice";
 import '../App.css';
 
 const TodoItem = (props) => {
@@ -10,11 +10,11 @@ const TodoItem = (props) => {
     };
 
     const deleteItem = () => {
-        if(window.confirm("Are you sure you want to remove this item?")){
+        if (window.confirm("Are you sure you want to remove this item?")) {
             dispatch(deleteTodoItem(props.index));
             window.alert("Todo Item removed successfully");
         }
-        else{
+        else {
             window.alert("Todo item remove failed")
         }
     };
@@ -26,7 +26,7 @@ const TodoItem = (props) => {
                 {props.todoItem.text}
             </span>
             <button className="delete-btn"
-            onClick={deleteItem}>&times;</button>
+                onClick={deleteItem}>&times;</button>
         </div>
     )
 }
