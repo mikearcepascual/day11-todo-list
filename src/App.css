@@ -72,11 +72,14 @@ h3 {
   font-size: 20px;
   border-radius: 25px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-.todoGenerator:hover{
+.todoGenerator button:hover{
   background-color:whitesmoke;
   color:#af7eeb;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+
 }
 ::placeholder{
   font-size:18px;
