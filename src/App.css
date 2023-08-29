@@ -74,6 +74,13 @@ h3 {
   cursor: pointer;
 }
 
+.todoGenerator:hover{
+  background-color:whitesmoke;
+  color:#af7eeb;
+}
+::placeholder{
+  font-size:18px;
+}
 .todoItem {
   width: 400px;
   text-align: center;
