@@ -19,15 +19,15 @@ const TodoGenerator = () => {
         }
         else {
             todoApi.addTodoItem({
-                        id: crypto.randomUUID(),
-                        text: todoItem,
-                        done: false,
-                    })
+                id: crypto.randomUUID(),
+                text: todoItem,
+                done: false,
+            })
             dispatch(addTodoItem({
-                        id: crypto.randomUUID(),
-                        text: todoItem,
-                        done: false,
-                    }))
+                id: crypto.randomUUID(),
+                text: todoItem,
+                done: false,
+            }))
             setTodoItem("");
         }
     }
