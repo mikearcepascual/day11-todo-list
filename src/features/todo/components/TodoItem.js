@@ -1,12 +1,16 @@
 import { useDispatch } from "react-redux";
-import { deleteTodoItem, doneTodoItem } from "./todoListSlice";
-import '../App.css';
+import { deleteTodoItem, doneTodoItem } from "../todoListSlice";
+import '../css/app.css';
 
 const TodoItem = (props) => {
     const dispatch = useDispatch();
 
     const markAsDone = () => {
-        dispatch(doneTodoItem(props.id))
+        if(props.todoItem.done){
+            console.log("Go to detail page");
+        }else{
+            dispatch(doneTodoItem(props.id))
+        }
     };
 
     const deleteItem = () => {

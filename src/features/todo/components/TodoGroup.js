@@ -1,5 +1,5 @@
 import TodoItem from './TodoItem';
-import '../App.css';
+import '../css/app.css';
 
 const TodoGroup = (props) => {
     const todoItems = props.todoItems;

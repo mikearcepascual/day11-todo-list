@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addTodoItem } from './todoListSlice';
-import '../App.css';
+import { addTodoItem } from '../todoListSlice';
+import '../css/app.css';
 
 const TodoGenerator = () => {
     const [todoItem, setTodoItem] = useState("");
