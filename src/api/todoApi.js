@@ -10,3 +10,7 @@ export const updateTodoItem = (id, todoItem) => {
 export const addTodoItem = (todoItem) => {
     return api.post(`/todos`, todoItem)
 }
+
+export const deleteTodoItem = (id) => {
+    return api.delete(`/todos/${id}`);
+}

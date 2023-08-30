@@ -8,12 +8,13 @@ const TodoItem = (props) => {
 
     const markAsDone = () => {
         dispatch(doneTodoItem(props.id))
-        todoApi.updateTodoItem(props.id, {done: !props.todoItem.done})
-        dispatch(doneTodoItem({id:props.id, done: !props.todoItem.done}))
+        todoApi.updateTodoItem(props.id, { done: !props.todoItem.done })
+        dispatch(doneTodoItem({ id: props.id, done: !props.todoItem.done }))
     };
 
     const deleteItem = () => {
         if (window.confirm("Are you sure you want to remove this item?")) {
+            todoApi.deleteTodoItem(props.id);
             dispatch(deleteTodoItem(props.id));
         }
         else {
