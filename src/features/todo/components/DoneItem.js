@@ -9,7 +9,7 @@ const DoneItem = (props) => {
     }
     return (
         <div className="todoItem">
-            <span onClick={onClickTodoItem}>{props.doneItem.text}</span>
+            <span id="todoText" onClick={onClickTodoItem}>{props.doneItem.text}</span>
         </div>
     )
 }
