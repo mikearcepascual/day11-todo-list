@@ -10,7 +10,7 @@ const DoneList = () => {
         <Layout>
             <Content className="todoList" >
                 <div className="todoListHeader">
-                    <h2>Done List List</h2>
+                    <h2>Done List</h2>
                 </div>
                 <DoneGroup doneItems={doneItems} />
             </Content>
