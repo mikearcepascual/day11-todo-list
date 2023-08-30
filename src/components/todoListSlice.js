@@ -10,10 +10,13 @@ const todoListSlice = createSlice({
             state.todoList.push(action.payload);
         },
         doneTodoItem: (state, action) => {
-            state.todoList[action.payload].done = !state.todoList[action.payload].done;
+            const doneTodoItem = state.todoList.find(item => item.id === action.payload);
+            if(doneTodoItem){
+                doneTodoItem.done = !doneTodoItem.done;
+            }
         },
         deleteTodoItem: (state, action) => {
-            state.todoList.splice(action.payload, 1);
+            state.todoList = state.todoList.filter(item => item.id !== action.payload);
         },
     },
 });

@@ -6,12 +6,12 @@ const TodoItem = (props) => {
     const dispatch = useDispatch();
 
     const markAsDone = () => {
-        dispatch(doneTodoItem(props.index))
+        dispatch(doneTodoItem(props.id))
     };
 
     const deleteItem = () => {
         if (window.confirm("Are you sure you want to remove this item?")) {
-            dispatch(deleteTodoItem(props.index));
+            dispatch(deleteTodoItem(props.id));
             window.alert("Todo Item removed successfully");
         }
         else {
