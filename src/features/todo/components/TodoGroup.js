@@ -1,18 +1,17 @@
 import TodoItem from './TodoItem';
+import { useSelector } from 'react-redux';
 import '../css/app.css';
 
 const TodoGroup = (props) => {
-    const todoItems = props.todoItems;
+    const todoItems = useSelector(state => state.todoList.todoList)
     if (todoItems.length !== 0) {
         return (
-            <div className="todoGroup">
-                {
-                    todoItems.map((todoItem, index) => {
-                        return <TodoItem todoItem={todoItem} key={todoItem.id} id={todoItem.id} />
-                    })
-                }
+            <div className='todoGroup'>
+                {(props.isDone ? todoItems.filter(todoItem => todoItem.done) : todoItems).map(((todoItem) =>
+                    <TodoItem key={todoItem.id} todoItem={todoItem} isDone={props.isDone} id={todoItem.id}></TodoItem>
+                ))}
             </div>
-        )
+        );
     }
     else {
         return (

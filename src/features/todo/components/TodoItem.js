@@ -6,7 +6,7 @@ const TodoItem = (props) => {
     const dispatch = useDispatch();
 
     const markAsDone = () => {
-        if(props.todoItem.done){
+        if(props.isDone){
             console.log("Go to detail page");
         }else{
             dispatch(doneTodoItem(props.id))
