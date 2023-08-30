@@ -12,15 +12,15 @@ const TodoItem = (props) => {
         setTodoItem(event.target.value)
     };
 
-    const {toggleTodo} = useTodos();
-    const {deleteTodo} = useTodos();
-    const {updateTodo} = useTodos();
-    
+    const { toggleTodo, deleteTodo, updateTodo } = useTodos();
+
+
     const showModal = () => {
         setIsModalOpen(true)
     }
     const handleCancel = () => {
         setIsModalOpen(false)
+        setTodoItem("")
     }
 
     const handleSubmit = () => {
@@ -31,7 +31,7 @@ const TodoItem = (props) => {
     const markAsDone = async () => {
         toggleTodo(props.id, props.todoItem);
     };
-  
+
     const deleteItem = async () => {
         if (window.confirm("Are you sure you want to remove this item?")) {
             deleteTodo(props.id);
@@ -47,12 +47,12 @@ const TodoItem = (props) => {
                 onClick={markAsDone}>
                 {props.todoItem.text}
             </span>
-            <Button className="edit-btn" type="primary" icon={<EditOutlined/>}
+            <Button className="edit-btn" type="primary" icon={<EditOutlined />}
                 onClick={showModal}></Button>
             <Button className="delete-btn" type="primary" danger
-                onClick={deleteItem} icon={<DeleteOutlined/>}></Button>
-            <Modal title="Basic Modal" open={isModalOpen} onOk={handleSubmit} onCancel={handleCancel}>
-                <input type='text'
+                onClick={deleteItem} icon={<DeleteOutlined />}></Button>
+            <Modal style={{ height: "300px" }} centered title="Edit Todo Text" open={isModalOpen} onOk={handleSubmit} onCancel={handleCancel}>
+                <input className="edit-todo" type='text'
                     placeholder={props.todoItem.text}
                     value={todoItem}
                     onChange={addItem} />
