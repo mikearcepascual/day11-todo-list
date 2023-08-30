@@ -12,7 +12,7 @@ const DoneGroup = () => {
                         if(doneItem.done){
                             return <DoneItem doneItem={doneItem} key={doneItem.id} index={index} />
                         }
-                        return <h2>No Done Items!</h2>
+                        return null
                     })
                 }
             </div>

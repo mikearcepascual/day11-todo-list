@@ -10,7 +10,7 @@ export default function TodoList() {
     const dispatch = useDispatch();
     useEffect(() => {
         async function fetchData(){
-            const response = await todoApi.getTodoTasks();
+            const response = await todoApi.getTodoItems();
             dispatch(resetTodoTask(response.data));
         }
         fetchData();

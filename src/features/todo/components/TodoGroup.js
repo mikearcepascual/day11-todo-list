@@ -9,7 +9,7 @@ const TodoGroup = () => {
             <div className="todoGroup">
                 {
                     todoItems.map((todoItem, index) => {
-                        return <TodoItem todoItem={todoItem} key={todoItem.id} index={index} id={todoItem.id} />
+                        return <TodoItem key={todoItem.id} todoItem={todoItem} index={index} id={todoItem.id} />
                     })
                 }
             </div>

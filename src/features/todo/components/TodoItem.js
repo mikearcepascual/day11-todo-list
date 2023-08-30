@@ -1,13 +1,15 @@
 import { useDispatch } from "react-redux";
 import { deleteTodoItem, doneTodoItem } from "../todoListSlice";
 import '../css/app.css';
+import * as todoApi from "../../../api/todoApi";
 
 const TodoItem = (props) => {
     const dispatch = useDispatch();
 
     const markAsDone = () => {
         dispatch(doneTodoItem(props.id))
-        
+        todoApi.updateTodoItem(props.id, {done: !props.todoItem.done})
+        dispatch(doneTodoItem({id:props.id, done: !props.todoItem.done}))
     };
 
     const deleteItem = () => {
