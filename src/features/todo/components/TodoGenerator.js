@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addTodoItem } from '../todoListSlice';
+import { addTodoItem, resetTodoTask } from '../todoListSlice';
 import * as todoApi from "../../../api/todoApi"
 import '../css/app.css';
 
@@ -13,21 +13,19 @@ const TodoGenerator = () => {
 
     const dispatch = useDispatch();
 
-    const submitInput = () => {
+    const submitInput = async () => {
         if (todoItem.trim() === "") {
             alert("Invalid input! Please add text");
         }
         else {
-            todoApi.addTodoItem({
+            await todoApi.addTodoItem({
                 id: crypto.randomUUID(),
                 text: todoItem,
                 done: false,
-            })
-            dispatch(addTodoItem({
-                id: crypto.randomUUID(),
-                text: todoItem,
-                done: false,
-            }))
+            });
+            const response = await todoApi.getTodoItems();
+            dispatch(resetTodoTask(response.data));
+            
             setTodoItem("");
         }
     }
