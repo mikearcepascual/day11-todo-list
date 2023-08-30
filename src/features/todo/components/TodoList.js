@@ -1,9 +1,18 @@
 import TodoGroup from './TodoGroup'
 import TodoGenerator from './TodoGenerator'
+import {useEffect} from 'react'
+import{useDispatch} from "react-redux"
+import * as todoApi from '../../../api/todoApi'
+import {resetTodoTask} from "../todoListSlice"
 import '../css/app.css';
 
-const TodoList = () => {
-
+export default function TodoList() {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        todoApi.getTodoTasks().then(response => {
+            dispatch(resetTodoTask(response.data));
+        });
+    },[]);
     return (
         <div className="todoList">
             <div className="todoListHeader">
@@ -14,4 +23,3 @@ const TodoList = () => {
         </div>
     )
 }
-export default TodoList;
