@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addTodoItem, resetTodoTask } from '../todoListSlice';
-import * as todoApi from "../../../api/todoApi"
+import {useTodos} from "../hooks/useTodos"
 import '../css/app.css';
 
 const TodoGenerator = () => {
@@ -11,21 +9,17 @@ const TodoGenerator = () => {
         setTodoItem(event.target.value)
     };
 
-    const dispatch = useDispatch();
-
+    const {addTodo} = useTodos();
     const submitInput = async () => {
         if (todoItem.trim() === "") {
             alert("Invalid input! Please add text");
         }
         else {
-            await todoApi.addTodoItem({
+            addTodo({
                 id: crypto.randomUUID(),
                 text: todoItem,
                 done: false,
-            });
-            const response = await todoApi.getTodoItems();
-            dispatch(resetTodoTask(response.data));
-            
+            })
             setTodoItem("");
         }
     }

@@ -1,22 +1,17 @@
-import { useDispatch } from "react-redux";
-import { resetTodoTask } from "../todoListSlice";
+import { useTodos } from '../hooks/useTodos'
 import '../css/app.css';
-import * as todoApi from "../../../api/todoApi";
 
 const TodoItem = (props) => {
-    const dispatch = useDispatch();
+    const {toggleTodo} = useTodos();
+    const {deleteTodo} = useTodos();
 
     const markAsDone = async () => {
-        await todoApi.updateTodoItem(props.id, { done: !props.todoItem.done })
-        const response = await todoApi.getTodoItems();
-        dispatch(resetTodoTask(response.data));
+        toggleTodo(props.id, props.todoItem);
     };
-
+  
     const deleteItem = async () => {
         if (window.confirm("Are you sure you want to remove this item?")) {
-            await todoApi.deleteTodoItem(props.id);
-            const response = await todoApi.getTodoItems();
-            dispatch(resetTodoTask(response.data));
+            deleteTodo(props.id);
         }
         else {
             window.alert("Todo item remove failed")
