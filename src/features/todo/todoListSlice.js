@@ -12,5 +12,5 @@ const todoListSlice = createSlice({
     },
 });
 
-export const { addTodoItem, doneTodoItem, deleteTodoItem, resetTodoTask } = todoListSlice.actions;
+export const { resetTodoTask } = todoListSlice.actions;
 export default todoListSlice.reducer;
