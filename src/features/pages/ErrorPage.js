@@ -3,7 +3,7 @@ import '../todo/css/app.css';
 import { Empty } from 'antd';
 
 const ErrorPage = () => {
-    
+
     const error = useRouteError();
     return (
         <div className="todoList">

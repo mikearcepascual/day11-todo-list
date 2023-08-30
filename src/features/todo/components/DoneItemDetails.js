@@ -1,13 +1,13 @@
-import {useSelector} from "react-redux"
-import {useParams} from 'react-router-dom'
+import { useSelector } from "react-redux"
+import { useParams } from 'react-router-dom'
 
 const DoneItemDetails = () => {
-    const {id} = useParams();
+    const { id } = useParams();
     const todoItem = useSelector(state => state.todoList.todoList.find(task => task.id === id))
 
     return (
-      
-            
+
+
         <div className="todoList">
             <div className="todoListHeader">
                 <h3>Todo Item Details</h3>
@@ -18,7 +18,7 @@ const DoneItemDetails = () => {
                 <div>{todoItem?.text}</div>
             </div>
         </div>
-        
+
     );
 }
 

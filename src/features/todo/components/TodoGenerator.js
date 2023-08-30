@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import {useTodos} from "../hooks/useTodos"
+import { useTodos } from "../hooks/useTodos"
 import '../css/app.css';
-import {Button} from 'antd'
+import { Button } from 'antd'
 
 const TodoGenerator = () => {
     const [todoItem, setTodoItem] = useState("");
@@ -10,7 +10,7 @@ const TodoGenerator = () => {
         setTodoItem(event.target.value)
     };
 
-    const {addTodo} = useTodos();
+    const { addTodo } = useTodos();
     const submitInput = async () => {
         if (todoItem.trim() === "") {
             alert("Invalid input! Please add text");

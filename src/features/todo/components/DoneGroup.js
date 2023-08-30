@@ -8,7 +8,7 @@ const DoneGroup = (props) => {
             <div className="doneGroup">
                 {
                     doneItems.map((doneItem, index) => {
-                        if(doneItem.done){
+                        if (doneItem.done) {
                             return <DoneItem doneItem={doneItem} key={doneItem.id} index={index} />
                         }
                         return null
