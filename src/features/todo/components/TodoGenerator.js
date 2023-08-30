@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {useTodos} from "../hooks/useTodos"
 import '../css/app.css';
+import {Button} from 'antd'
 
 const TodoGenerator = () => {
     const [todoItem, setTodoItem] = useState("");
@@ -30,7 +31,7 @@ const TodoGenerator = () => {
                 placeholder="What are you going to do today?"
                 value={todoItem}
                 onChange={addItem} />
-            <button onClick={submitInput}>Add</button>
+            <Button type="primary" className="add-btn" onClick={submitInput}>Add</Button>
         </div>
     )
 }

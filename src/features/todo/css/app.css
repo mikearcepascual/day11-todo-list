@@ -16,7 +16,7 @@ body {
 
 .todoList {
   width: 500px;
-  height: 500px;
+  height: 550px;
   display: flex;
   justify-content: center;
   align-items: space-between;
@@ -26,15 +26,15 @@ body {
   border: 5px solid rgba(0, 0, 0, 0.5);
 }
 
-h3 {
+h3, h2 {
   margin: 0;
 }
 
 .todoListHeader {
   background-color: #af7eeb;
   margin: 10px 0 0 0;
-  height: 25px;
-  padding: 10px 0;
+  height: 50px;
+  padding-top: 10px;
   width: 250px;
   text-align: center;
   color: whitesmoke;
@@ -45,6 +45,21 @@ h3 {
   padding-top: 15px;
   width: 450px;
   height: 70%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: whitesmoke;
+  overflow-y: none;
+  padding-left: 5px;
+  background-image: linear-gradient(#ccc 1px, transparent 1px);
+  background-attachment: fixed;
+  background-repeat: repeat;
+  background-size: 40px 45px;
+}
+.helpPage, .doneGroup{
+  padding-top: 15px;
+  width: 450px;
+  height: 80%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -148,13 +163,39 @@ button {
   list-style: none;
 }
 
-a {
-  color: white;
+
+a{
+	color:#f8f8f8;
   text-decoration: none;
-  transition: 0.3s;
+}
+a:after{
+	content:"";
+	display:block;
+	width:0;
+	
+	height:2px;
+	background:#f8f8f8;
+	transition:width .4s;
+}
+a:hover::after{
+	width:100%;
 }
 
-a:hover {
-  text-decoration: underline;
-  font-weight: bolder;
+.edit-todo{
+  width: 80%;
+  margin-left:10%;
+  border-radius: 0;
+  height: 30px;
+  border: none;
+  outline: none;
+  font-size: 24px;
+  height: 80%;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.empty-page{
+  margin-top:150px;
+  padding-top:20px;
+  height:200px;
+  filter: drop-shadow(10px 10px 4px rgba(0,0,0,0.5));
 }

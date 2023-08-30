@@ -1,20 +1,19 @@
 import '../todo/css/app.css';
+import { Layout } from 'antd';
 
 const HelpPage = () => {
-
+    const { Content } = Layout;
     return (
-        <div className="todoList">
-            <div className="todoListHeader">
-                <h3>Help Page</h3>
+        <Layout>
+        <Content className="todoList" >
+        <div className="todoListHeader">
+                <h2>Help Page</h2>
             </div>
-            <div className="todoGroup">
-                <h3>hehe</h3>
+            <div className="helpPage">
+               
             </div>
-            <div className="todoGenerator">
-                <input type='text' style={{display:"none"}}
-                     />
-            </div>
-        </div>
+        </Content>
+    </Layout>
     )
 
 }

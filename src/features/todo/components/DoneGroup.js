@@ -5,7 +5,7 @@ const DoneGroup = (props) => {
     const doneItems = props.doneItems.filter(doneItem => doneItem.done);
     if (doneItems.length !== 0) {
         return (
-            <div className="todoGroup">
+            <div className="doneGroup">
                 {
                     doneItems.map((doneItem, index) => {
                         if(doneItem.done){
