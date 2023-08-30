@@ -8,15 +8,18 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import TodoList from './features/todo/components/TodoList'
 import DoneList from './features/todo/components/DoneList'
 import HelpPage from './features/pages/HelpPage'
+import ErrorPage from './features/pages/ErrorPage'
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([{
   path: "/",
   element: <App />,
+  errorElement: <ErrorPage />,
   children: [{
     index: true,
-    element: <TodoList />
+    element: <TodoList />,
+    
   }, {
     path: "/help",
     element: <HelpPage />
