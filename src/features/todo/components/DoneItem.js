@@ -2,12 +2,11 @@ import { useDispatch } from "react-redux";
 import { deleteTodoItem, doneTodoItem } from "../todoListSlice";
 import '../css/app.css';
 
-const TodoItem = (props) => {
+const DoneItem = (props) => {
     const dispatch = useDispatch();
 
     const markAsDone = () => {
         dispatch(doneTodoItem(props.id))
-        
     };
 
     const deleteItem = () => {
@@ -21,9 +20,9 @@ const TodoItem = (props) => {
 
     return (
         <div className="todoItem">
-            <span className={props.todoItem.done ? "done" : ""}
+            <span className={props.doneItem.done ? "done" : ""}
                 onClick={markAsDone}>
-                {props.todoItem.text}
+                {props.doneItem.text}
             </span>
             <button className="delete-btn"
                 onClick={deleteItem}>&times;</button>
@@ -31,4 +30,4 @@ const TodoItem = (props) => {
     )
 }
 
-export default TodoItem;
+export default DoneItem;

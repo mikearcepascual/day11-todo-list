@@ -6,6 +6,7 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import TodoList from './features/todo/components/TodoList'
+import DoneList from './features/todo/components/DoneList'
 import HelpPage from './features/pages/HelpPage'
 import reportWebVitals from './reportWebVitals';
 
@@ -21,7 +22,7 @@ const router = createBrowserRouter([{
     element: <HelpPage />
   }, {
     path: "/done",
-    element: <TodoList isDone={true}/>
+    element: <DoneList/>
   }],
 
 }]);
