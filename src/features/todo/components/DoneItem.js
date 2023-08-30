@@ -1,31 +1,15 @@
-import { useDispatch } from "react-redux";
-import { deleteTodoItem, doneTodoItem } from "../todoListSlice";
+import { useNavigate } from "react-router-dom"
 import '../css/app.css';
 
 const DoneItem = (props) => {
-    const dispatch = useDispatch();
+    const navigate = useNavigate()
 
-    const markAsDone = () => {
-        dispatch(doneTodoItem(props.id))
-    };
-
-    const deleteItem = () => {
-        if (window.confirm("Are you sure you want to remove this item?")) {
-            dispatch(deleteTodoItem(props.id));
-        }
-        else {
-            window.alert("Todo item remove failed")
-        }
-    };
-
+    const onClickTodoItem = () => {
+        navigate("/done/" + props.doneItem.id);
+    }
     return (
         <div className="todoItem">
-            <span className={props.doneItem.done ? "done" : ""}
-                onClick={markAsDone}>
-                {props.doneItem.text}
-            </span>
-            <button className="delete-btn"
-                onClick={deleteItem}>&times;</button>
+            <span onClick={onClickTodoItem}>{props.doneItem.text}</span>
         </div>
     )
 }

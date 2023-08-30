@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import TodoList from './features/todo/components/TodoList'
 import DoneList from './features/todo/components/DoneList'
 import HelpPage from './features/pages/HelpPage'
+import DoneItemDetails from './features/todo/components/DoneItemDetails'
 import ErrorPage from './features/pages/ErrorPage'
 import reportWebVitals from './reportWebVitals';
 
@@ -26,6 +27,9 @@ const router = createBrowserRouter([{
   }, {
     path: "/done",
     element: <DoneList/>
+  }, {
+    path: "/done/:id",
+    element: <DoneItemDetails/>
   }],
 
 }]);
