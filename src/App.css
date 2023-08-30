@@ -103,21 +103,22 @@ h3 {
   width: 400px;
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   padding: 7px;
   font-size: 20px;
   cursor: pointer;
   background-color: transparent;
   border: 2px solid transparent;
+  word-wrap:break-word;
 }
 
 .todoItem span {
   display: list-item;
   list-style-position: inside;
   padding-left: 12px;
-  width: 90%;
+  width: 85%;
   font-weight: 500;
 }
-
 .done {
   color: #ccc;
   text-decoration: line-through;
@@ -131,5 +132,6 @@ h3 {
   color: white;
   font-weight: bolder;
   width: 32px;
+  height:32px;
   cursor: pointer;
 }

@@ -12,7 +12,6 @@ const TodoItem = (props) => {
     const deleteItem = () => {
         if (window.confirm("Are you sure you want to remove this item?")) {
             dispatch(deleteTodoItem(props.id));
-            window.alert("Todo Item removed successfully");
         }
         else {
             window.alert("Todo item remove failed")
