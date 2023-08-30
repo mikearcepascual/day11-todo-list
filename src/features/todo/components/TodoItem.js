@@ -1,9 +1,32 @@
 import { useTodos } from '../hooks/useTodos'
 import '../css/app.css';
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons"
+import { useState } from "react"
+import { Button, Modal } from 'antd';
 
 const TodoItem = (props) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [todoItem, setTodoItem] = useState("");
+
+    const addItem = (event) => {
+        setTodoItem(event.target.value)
+    };
+
     const {toggleTodo} = useTodos();
     const {deleteTodo} = useTodos();
+    const {updateTodo} = useTodos();
+    
+    const showModal = () => {
+        setIsModalOpen(true)
+    }
+    const handleCancel = () => {
+        setIsModalOpen(false)
+    }
+
+    const handleSubmit = () => {
+        updateTodo(props.id, todoItem);
+        setIsModalOpen(false)
+    }
 
     const markAsDone = async () => {
         toggleTodo(props.id, props.todoItem);
@@ -20,12 +43,20 @@ const TodoItem = (props) => {
 
     return (
         <div className="todoItem">
-            <span className={props.todoItem.done ? "done" : ""}
+            <span id="todoText" className={props.todoItem.done ? "done" : ""}
                 onClick={markAsDone}>
                 {props.todoItem.text}
             </span>
-            <button className="delete-btn"
-                onClick={deleteItem}>&times;</button>
+            <Button className="edit-btn" type="primary" icon={<EditOutlined/>}
+                onClick={showModal}></Button>
+            <Button className="delete-btn" type="primary" danger
+                onClick={deleteItem} icon={<DeleteOutlined/>}></Button>
+            <Modal title="Basic Modal" open={isModalOpen} onOk={handleSubmit} onCancel={handleCancel}>
+                <input type='text'
+                    placeholder={props.todoItem.text}
+                    value={todoItem}
+                    onChange={addItem} />
+            </Modal>
         </div>
     )
 }

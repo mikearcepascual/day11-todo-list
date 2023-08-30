@@ -3,7 +3,7 @@ import api from "./api";
 export const getTodoItems = () => {
     return api.get("/todos")
 }
-export const updateTodoItem = (id, todoItem) => {
+export const toggleTodoItem = (id, todoItem) => {
     return api.put(`/todos/${id}`, todoItem)
 }
 
@@ -13,4 +13,8 @@ export const addTodoItem = (todoItem) => {
 
 export const deleteTodoItem = (id) => {
     return api.delete(`/todos/${id}`);
+}
+
+export const updateTodoItem = (id, textToUpdate) => {
+    return api.put(`/todos/${id}`, textToUpdate)
 }

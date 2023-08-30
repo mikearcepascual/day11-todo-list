@@ -13,17 +13,22 @@ export const useTodos = () => {
         loadTodos();
     }
     const toggleTodo = async (id, todoItem) => {
-        await todoApi.updateTodoItem(id, {done: !todoItem.done})
+        await todoApi.toggleTodoItem(id, {done: !todoItem.done})
         loadTodos();
     }
     const deleteTodo = async (id) => {
         await todoApi.deleteTodoItem(id)
         loadTodos();
     }
+    const updateTodo = async (id, textToUpdate) => {
+        await todoApi.updateTodoItem(id, {text: textToUpdate})
+        loadTodos();
+    }
     return{
         loadTodos,
         addTodo,
         toggleTodo,
-        deleteTodo
+        deleteTodo,
+        updateTodo
     }
 }
