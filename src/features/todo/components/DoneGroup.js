@@ -1,9 +1,8 @@
 import DoneItem from './DoneItem';
-import { useSelector } from 'react-redux';
 import '../css/app.css';
 
-const DoneGroup = () => {
-    const doneItems = useSelector((state) => state.todoList.todoList);
+const DoneGroup = (props) => {
+    const doneItems = props.doneItems.filter(doneItem => doneItem.done);
     if (doneItems.length !== 0) {
         return (
             <div className="todoGroup">
