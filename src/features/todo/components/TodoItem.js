@@ -5,7 +5,9 @@ import { useState } from "react"
 import { Button, Modal } from 'antd';
 
 const TodoItem = (props) => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+    const [isDeleteCancelled, setIsDeleteCancelled] = useState(false);
     const [todoItem, setTodoItem] = useState("");
 
     const addItem = (event) => {
@@ -15,30 +17,36 @@ const TodoItem = (props) => {
     const { toggleTodo, deleteTodo, updateTodo } = useTodos();
 
 
-    const showModal = () => {
-        setIsModalOpen(true)
+    const showEditModal = () => {
+        setIsEditModalOpen(true)
     }
-    const handleCancel = () => {
-        setIsModalOpen(false)
+    const handleEditCancel = () => {
+        setIsEditModalOpen(false)
         setTodoItem("")
     }
 
     const handleSubmit = () => {
         updateTodo(props.id, todoItem);
-        setIsModalOpen(false)
+        setIsEditModalOpen(false)
     }
 
+    const showDeleteModal = () => {
+        setIsDeleteModalOpen(true)
+    }
+    const handleDeleteCancel = () => {
+        setIsDeleteModalOpen(false)
+        setIsDeleteCancelled(true)
+    }
+    const handleClose = () => {
+        setIsDeleteCancelled(false)
+    }
+
+    const handleDelete = () => {
+        deleteTodo(props.id);
+        setIsEditModalOpen(false)
+    }
     const markAsDone = async () => {
         toggleTodo(props.id, props.todoItem);
-    };
-
-    const deleteItem = async () => {
-        if (window.confirm("Are you sure you want to remove this item?")) {
-            deleteTodo(props.id);
-        }
-        else {
-            window.alert("Todo item remove failed")
-        }
     };
 
     return (
@@ -48,10 +56,17 @@ const TodoItem = (props) => {
                 {props.todoItem.text}
             </span>
             <Button className="edit-btn" type="primary" icon={<EditOutlined />}
-                onClick={showModal}></Button>
+                onClick={showEditModal}></Button>
             <Button className="delete-btn" type="primary" danger
-                onClick={deleteItem} icon={<DeleteOutlined />}></Button>
-            <Modal style={{ height: "300px" }} centered title="Edit Todo Text" open={isModalOpen} onOk={handleSubmit} onCancel={handleCancel}>
+                onClick={showDeleteModal} icon={<DeleteOutlined />}></Button>
+            <Modal style={{ height: "300px", textAlign:"center" }} centered title="Delete Todo Item" open={isDeleteModalOpen} onOk={handleDelete} onCancel={handleDeleteCancel}>
+                <h3>Are you sure you want to remove this item?</h3>
+                <p><strong>Todo Task:</strong> {props.todoItem.text}</p>
+            </Modal>
+            <Modal style={{ height: "300px", textAlign:"center" }} centered title="Delete Failed" open={isDeleteCancelled} onOk={handleClose} onCancel={handleClose}>
+                <h3>Todo item remove failed.</h3>
+            </Modal>
+            <Modal style={{ height: "300px" }} centered title="Edit Todo Text" open={isEditModalOpen} onOk={handleSubmit} onCancel={handleEditCancel}>
                 <input className="edit-todo" type='text'
                     placeholder={props.todoItem.text}
                     value={todoItem}
